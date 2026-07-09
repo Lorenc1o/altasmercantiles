@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="_hFc95y8makHSVBWFLof8qytrW2h4C7MSCJNqWmGQ_M" />
+<title>Altas Mercantiles — Las empresas nuevas de tu provincia, cada lunes en tu correo</title>
+<meta name="description" content="Feed semanal de empresas recién constituidas en el Registro Mercantil (BORME), clasificadas por sector y filtradas por provincia. Para gestorías, corredurías, agencias y proveedores B2B. Desde 49 €/mes.">
+<meta property="og:title" content="Altas Mercantiles — empresas recién constituidas, cada lunes">
+<meta property="og:description" content="Feed semanal de constituciones del BORME por provincia y sector. CSV listo para Excel. Desde 49 €/mes.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.altasmercantiles.es/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Altas Mercantiles","url":"https://www.altasmercantiles.es","description":"Feed semanal de empresas recién constituidas en el Registro Mercantil, clasificadas por sector y provincia, para gestorías, asesorías, corredurías y agencias.","areaServed":"ES","email":"web@altasmercantiles.es"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Altas Mercantiles","url":"https://www.altasmercantiles.es"}</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0e1726">
+<!-- Inter alojada en el propio servidor: cero llamadas a terceros, cero cookies -->
+<style>
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/inter.woff2') format('woff2');
+  }
+  :root {
+    --ink: #0e1726;
+    --muted: #5b6575;
+    --accent: #0c7a55;
+    --accent-dark: #095e42;
+    --accent-soft: #e7f4ee;
+    --bg: #f7f8fa;
+    --card: #ffffff;
+    --line: #e5e8ee;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink); background: var(--bg); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent); }
+
+  /* ── Nav ─────────────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(247,248,250,.85); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; gap: 28px; height: 64px; }
+  .logo { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em;
+          color: var(--ink); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 22px; margin-left: auto; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--accent); color: #fff !important; padding: 9px 18px;
+    border-radius: 9px; font-weight: 600;
+  }
+  .nav-cta:hover { background: var(--accent-dark); }
+
+  /* ── Hero ────────────────────────────────────────── */
+  .hero { padding: 80px 0 64px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-soft); color: var(--accent-dark);
+    font-size: .8rem; font-weight: 600; padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%;
+                   background: var(--accent); }
+  h1 { font-size: 2.7rem; line-height: 1.15; letter-spacing: -0.035em; font-weight: 800; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .sub { color: var(--muted); font-size: 1.13rem; margin: 20px 0 30px; max-width: 520px; }
+  .cta {
+    display: inline-block; background: var(--accent); color: #fff;
+    padding: 14px 28px; border-radius: 10px; text-decoration: none;
+    font-weight: 600; font-size: 1rem;
+    box-shadow: 0 6px 18px rgba(12,122,85,.22);
+    transition: transform .12s ease, background .12s ease;
+  }
+  .cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .cta.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent);
+               box-shadow: none; margin-left: 12px; }
+  .cta.ghost:hover { background: var(--accent-soft); }
+  .trust { margin-top: 18px; font-size: .85rem; color: var(--muted); }
+
+  /* ── CSV preview card ────────────────────────────── */
+  .preview {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: 0 24px 60px -24px rgba(14,23,38,.18);
+    overflow: hidden; font-size: .8rem;
+  }
+  .preview-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 11px 16px; border-bottom: 1px solid var(--line);
+    background: #fbfcfd; color: var(--muted); font-weight: 600; font-size: .78rem;
+  }
+  .preview-bar .dot { width: 9px; height: 9px; border-radius: 50%; background: #e3e7ed; }
+  .preview table { width: 100%; border-collapse: collapse; }
+  .preview th {
+    text-align: left; padding: 9px 14px; color: var(--muted); font-weight: 600;
+    border-bottom: 1px solid var(--line); background: #fbfcfd; white-space: nowrap;
+  }
+  .preview td { padding: 9px 14px; border-bottom: 1px solid #f0f2f5; white-space: nowrap; }
+  .preview td.name { font-weight: 600; }
+  .tag {
+    display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+    padding: 2px 9px; border-radius: 999px; font-size: .72rem; font-weight: 600;
+  }
+  .preview .fade td { color: transparent; text-shadow: 0 0 7px rgba(14,23,38,.35); }
+  .preview .fade .tag { color: transparent; }
+
+  /* ── Stats band ──────────────────────────────────── */
+  .stats { border-block: 1px solid var(--line); background: var(--card); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat { padding: 26px 12px; text-align: center; }
+  .stat + .stat { border-left: 1px solid var(--line); }
+  .stat b { display: block; font-size: 1.55rem; font-weight: 800; letter-spacing: -0.02em; }
+  .stat span { color: var(--muted); font-size: .85rem; }
+
+  /* ── Sections ────────────────────────────────────── */
+  section { padding: 72px 0; }
+  .kicker { color: var(--accent); font-weight: 700; font-size: .82rem;
+            text-transform: uppercase; letter-spacing: .08em; }
+  h2 { font-size: 1.85rem; letter-spacing: -0.025em; font-weight: 800; margin: 8px 0 14px; }
+  .lead { color: var(--muted); max-width: 640px; margin-bottom: 36px; }
+
+  .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 26px;
+  }
+  .card .num {
+    display: inline-flex; width: 34px; height: 34px; border-radius: 9px;
+    background: var(--accent-soft); color: var(--accent-dark);
+    align-items: center; justify-content: center; font-weight: 800; margin-bottom: 14px;
+  }
+  .card h3 { font-size: 1.04rem; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .card p { color: var(--muted); font-size: .93rem; }
+
+  .checks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 32px;
+            list-style: none; padding: 0; max-width: 720px; }
+  .checks li { padding-left: 30px; position: relative; color: var(--ink); }
+  .checks li::before {
+    content: "✓"; position: absolute; left: 0; top: 0;
+    color: var(--accent); font-weight: 800;
+  }
+  .checks li small { color: var(--muted); }
+
+  .who { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .who div {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px 18px; font-weight: 600; font-size: .94rem;
+  }
+  .who div small { display: block; color: var(--muted); font-weight: 400; font-size: .84rem; }
+
+  /* ── Pricing ─────────────────────────────────────── */
+  #precios { background: var(--card); border-block: 1px solid var(--line); }
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+  .tier {
+    background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 30px 28px; display: flex; flex-direction: column; position: relative;
+  }
+  .tier.featured { background: #fff; border: 2px solid var(--accent);
+                   box-shadow: 0 18px 44px -18px rgba(12,122,85,.3); }
+  .tier .pill {
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: #fff; font-size: .72rem; font-weight: 700;
+    padding: 4px 14px; border-radius: 999px; letter-spacing: .04em; white-space: nowrap;
+  }
+  .tier h3 { font-size: 1.02rem; letter-spacing: -0.01em; }
+  .tier .price { font-size: 2.3rem; font-weight: 800; letter-spacing: -0.03em; margin: 10px 0 2px; }
+  .tier .price small { font-size: .95rem; color: var(--muted); font-weight: 500; }
+  .tier .per { color: var(--muted); font-size: .86rem; margin-bottom: 18px; }
+  .tier ul { list-style: none; padding: 0; margin: 0 0 26px; color: var(--muted);
+             font-size: .9rem; display: grid; gap: 8px; }
+  .tier ul li { padding-left: 24px; position: relative; }
+  .tier ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .tier .cta { margin-top: auto; text-align: center; }
+  .price-note { margin-top: 22px; color: var(--muted); font-size: .85rem; }
+
+  /* ── FAQ ─────────────────────────────────────────── */
+  .faq details {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 22px; margin-bottom: 10px;
+  }
+  .faq summary { font-weight: 600; cursor: pointer; list-style: none; position: relative; padding-right: 28px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; position: absolute; right: 0; top: 0;
+                        color: var(--accent); font-weight: 700; font-size: 1.1rem; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { color: var(--muted); margin-top: 10px; font-size: .95rem; }
+
+  /* ── Final CTA & footer ──────────────────────────── */
+  .final {
+    background: linear-gradient(135deg, #0c7a55, #0a5c41);
+    border-radius: var(--radius); color: #fff; text-align: center;
+    padding: 56px 32px;
+  }
+  .final h2 { color: #fff; }
+  .final p { color: rgba(255,255,255,.85); max-width: 520px; margin: 0 auto 26px; }
+  .final .cta { background: #fff; color: var(--accent-dark); box-shadow: none; }
+  .final .cta:hover { background: #eef7f2; }
+
+  footer { padding: 44px 0 64px; color: var(--muted); font-size: .85rem; }
+  footer .cols { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 880px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    h1 { font-size: 2.1rem; }
+    .cards3, .who, .tiers { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(3) { border-left: none; }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .checks { grid-template-columns: 1fr; }
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#">Altas<span>Mercantiles</span></a>
+    <div class="nav-links">
+      <a href="#como">Cómo funciona</a>
+      <a href="#datos">Datos</a>
+      <a href="#precios">Precios</a>
+      <a href="#faq">FAQ</a>
+      <a href="/blog.html">Blog</a>
+      <a class="nav-cta" href="#precios">Empezar</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge">Fuente oficial: BORME · Registro Mercantil</div>
+      <h1>Las empresas recién constituidas de tu provincia, <em>cada lunes</em> en tu correo.</h1>
+      <p class="sub">Cada semana se constituyen más de 3.000 sociedades en España. En sus
+      primeros días eligen gestoría, seguros, banco, web y proveedores. Te las servimos
+      clasificadas por sector y filtradas por provincia, en un CSV listo para llamar.</p>
+      <a class="cta" href="#precios">Suscríbete desde 49&nbsp;€/mes</a>
+      <a class="cta ghost" href="#contacto">Pide una muestra gratis</a>
+      <p class="trust">Sin permanencia · Primer feed el lunes siguiente al alta · Se abre directamente en Excel</p>
+    </div>
+    <div class="preview" aria-hidden="true">
+      <div class="preview-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        feed_murcia_2026-06-08.csv
+      </div>
+      <table>
+        <tr><th>Fecha</th><th>Denominación</th><th>Capital</th><th>Sector</th></tr>
+        <tr><td>08/06</td><td class="name">REFORMAS LEVANTE AZUL SL</td><td>3.000&nbsp;€</td><td><span class="tag">Construcción</span></td></tr>
+        <tr><td>08/06</td><td class="name">ASADOR LA HUERTANICA SL</td><td>6.000&nbsp;€</td><td><span class="tag">Hostelería</span></td></tr>
+        <tr><td>09/06</td><td class="name">LOGÍSTICA SURESTE 24 SL</td><td>12.000&nbsp;€</td><td><span class="tag">Transporte</span></td></tr>
+        <tr><td>10/06</td><td class="name">CLÍNICA DENTAL ALAMEDA SLP</td><td>30.000&nbsp;€</td><td><span class="tag">Salud</span></td></tr>
+        <tr class="fade"><td>10/06</td><td class="name">INSTALACIONES FM ENERGÍA SL</td><td>3.500&nbsp;€</td><td><span class="tag">Energía</span></td></tr>
+        <tr class="fade"><td>11/06</td><td class="name">AGROEXPORT CAMPO VIVO SL</td><td>10.000&nbsp;€</td><td><span class="tag">Agro</span></td></tr>
+      </table>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><b>+3.000</b><span>constituciones cada semana</span></div>
+    <div class="stat"><b>52</b><span>provincias cubiertas</span></div>
+    <div class="stat"><b>22</b><span>sectores clasificados</span></div>
+    <div class="stat"><b>Lunes 8:00</b><span>entrega puntual semanal</span></div>
+  </div>
+</div>
+
+<section id="como">
+  <div class="wrap">
+    <div class="kicker">Cómo funciona</div>
+    <h2>Del boletín oficial a tu Excel, sin que muevas un dedo</h2>
+    <p class="lead">Procesamos la fuente primaria — el BORME — todos los días hábiles.
+    Nada de bases de datos de terceros desactualizadas.</p>
+    <div class="cards3">
+      <div class="card"><span class="num">1</span>
+        <h3>Extraemos cada constitución</h3>
+        <p>Cada día leemos el Boletín Oficial del Registro Mercantil y extraemos todas las
+        sociedades nuevas: denominación, domicilio completo, capital social, objeto social
+        y administradores.</p></div>
+      <div class="card"><span class="num">2</span>
+        <h3>Clasificamos por sector</h3>
+        <p>Cada empresa se clasifica en uno de 22 sectores (hostelería, construcción,
+        transporte, tecnología…) combinando el CNAE declarado con el análisis del objeto
+        social.</p></div>
+      <div class="card"><span class="num">3</span>
+        <h3>Te lo entregamos el lunes</h3>
+        <p>A las 8:00 recibes un CSV con las empresas de tus provincias y sectores
+        constituidas la semana anterior. Formato pensado para Excel español: ábrelo y
+        empieza a llamar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="datos">
+  <div class="wrap">
+    <div class="kicker">Qué incluye</div>
+    <h2>Cada fila, lista para tu CRM</h2>
+    <ul class="checks">
+      <li>Fecha de publicación en BORME</li>
+      <li>Denominación social</li>
+      <li>Provincia y domicilio completo</li>
+      <li>Capital social</li>
+      <li>Objeto social íntegro</li>
+      <li>CNAE <small>(cuando se declara)</small></li>
+      <li>Sector clasificado <small>(22 categorías)</small></li>
+      <li>Administradores <small>(opcional, bajo petición)</small></li>
+    </ul>
+  </div>
+</section>
+
+<section id="quien">
+  <div class="wrap">
+    <div class="kicker">Para quién es</div>
+    <h2>Si tu mejor cliente es una empresa nueva, esto es para ti</h2>
+    <div class="who">
+      <div>Gestorías y asesorías<small>fiscal, laboral y contable desde el día uno</small></div>
+      <div>Corredurías de seguros<small>RC, convenio, multirriesgo para sociedades nuevas</small></div>
+      <div>Agencias web y marketing<small>la web y la marca se contratan al principio</small></div>
+      <div>TPV, telefonía y oficina<small>equipamiento que toda empresa nueva necesita</small></div>
+      <div>Banca, renting y financiación<small>cuentas, leasing y flotas para sociedades recién creadas</small></div>
+      <div>Proveedores B2B en general<small>llega antes que tu competencia</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="precios">
+  <div class="wrap">
+    <div class="kicker">Precios</div>
+    <h2>Elige tu cobertura</h2>
+    <p class="lead">Todos los planes incluyen entrega semanal, los 22 sectores que elijas
+    y soporte por email. Sin permanencia: cancela cuando quieras.</p>
+    <div class="tiers">
+      <div class="tier">
+        <h3>Una provincia</h3>
+        <div class="price">49&nbsp;€<small>/mes + IVA</small></div>
+        <div class="per">La provincia que elijas</div>
+        <ul>
+          <li>Feed semanal en CSV</li>
+          <li>Filtrado por sectores incluido</li>
+          <li>Entrega lunes 8:00</li>
+        </ul>
+        <a class="cta" href="#contacto" data-plan="Una provincia (49 €/mes)">Empezar</a>
+      </div>
+      <div class="tier">
+        <h3>Varias provincias</h3>
+        <div class="price">49&nbsp;€ <small>+ 4,90&nbsp;€/mes por provincia extra</small></div>
+        <div class="per">Ej.: 3 provincias = 58,80&nbsp;€/mes</div>
+        <ul>
+          <li>Todo lo del plan provincial</li>
+          <li>Un único CSV combinado</li>
+          <li>Añade o quita provincias cuando quieras</li>
+        </ul>
+        <a class="cta" href="#contacto" data-plan="Varias provincias">Configurar feed</a>
+      </div>
+      <div class="tier featured">
+        <span class="pill">MEJOR VALOR</span>
+        <h3>Toda España</h3>
+        <div class="price">98&nbsp;€<small>/mes + IVA</small></div>
+        <div class="per">Las 52 provincias, +3.000 empresas/semana</div>
+        <ul>
+          <li>Cobertura nacional completa</li>
+          <li>Filtrado por sectores incluido</li>
+          <li>Ideal para equipos comerciales</li>
+        </ul>
+        <a class="cta" href="#contacto" data-plan="Toda España (98 €/mes)">Empezar</a>
+      </div>
+    </div>
+    <p class="price-note">¿Aún dudas? <a href="#contacto">Pide una muestra gratuita</a> con datos reales de tu provincia y compruébalo antes de pagar.</p>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <div class="kicker">Preguntas frecuentes</div>
+    <h2>Resolvemos dudas</h2>
+    <details>
+      <summary>¿De dónde salen los datos?</summary>
+      <p>Del BORME, el Boletín Oficial del Registro Mercantil: la fuente pública y oficial
+      donde se publica cada constitución de sociedad en España. Nada de scraping de redes
+      sociales ni bases de datos opacas.</p>
+    </details>
+    <details>
+      <summary>¿Cuántas empresas recibiré cada semana?</summary>
+      <p>Depende de la provincia: Madrid publica 100–150 constituciones al día; una
+      provincia media, entre 5 y 20 diarias. Pide la muestra gratuita y compruébalo con
+      datos reales de tu zona antes de suscribirte.</p>
+    </details>
+    <details>
+      <summary>¿En qué formato llega?</summary>
+      <p>CSV preparado para Excel en español (separador de punto y coma, acentos
+      correctos, importes con coma decimal). Doble clic y se abre bien. También puedes
+      importarlo a cualquier CRM.</p>
+    </details>
+    <details>
+      <summary>¿Esto cumple con el RGPD?</summary>
+      <p>Los datos proceden de una fuente de acceso público y se tratan bajo interés
+      legítimo para fines B2B. Los nombres de administradores solo se incluyen si los
+      solicitas expresamente, y atendemos cualquier solicitud de supresión u oposición
+      en 72&nbsp;horas.</p>
+    </details>
+    <details>
+      <summary>¿Puedo cambiar de provincias o sectores después?</summary>
+      <p>Sí. Escríbenos y ajustamos tu feed; el cambio se aplica en la siguiente entrega.
+      Si añades provincias, el precio se actualiza según la tarifa (+4,90&nbsp;€/mes por
+      provincia adicional).</p>
+    </details>
+    <details>
+      <summary>¿Puedo cancelar?</summary>
+      <p>Sí, cuando quieras: escríbenos y la cancelamos al momento, sin permanencia
+      ni penalizaciones.</p>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="final">
+      <h2>Tu competencia aún no les ha llamado.</h2>
+      <p>Recibe el lunes las empresas constituidas esta semana en tu provincia.
+      Empieza con una muestra gratuita con datos reales.</p>
+      <a class="cta" href="#contacto">Pedir muestra gratuita</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contacto{padding:64px 0;background:var(--accent-soft)}
+  .contacto h2{margin:0 0 8px}
+  .contacto-sub{color:var(--muted);margin:0 0 24px;max-width:560px}
+  #form-contacto{max-width:620px;display:flex;flex-direction:column;gap:14px}
+  #form-contacto .row{display:flex;gap:14px;flex-wrap:wrap}
+  #form-contacto .row label{flex:1 1 220px}
+  #form-contacto label{display:flex;flex-direction:column;font-size:14px;font-weight:600;color:var(--ink);gap:6px}
+  #form-contacto input,#form-contacto select,#form-contacto textarea{font:inherit;padding:11px 13px;border:1px solid #d4dae2;border-radius:10px;background:#fff;color:var(--ink);width:100%;box-sizing:border-box}
+  #form-contacto input:focus,#form-contacto select:focus,#form-contacto textarea:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+  #form-contacto .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  #form-contacto button{align-self:flex-start;cursor:pointer;border:none}
+  .form-status{font-size:14px;font-weight:600;min-height:1.2em;margin:4px 0 0}
+  .form-status.ok{color:var(--accent-dark)}
+  .form-status.err{color:#b3261e}
+</style>
+<section id="contacto" class="contacto">
+  <div class="wrap">
+    <h2>Pídenos una muestra gratis</h2>
+    <p class="contacto-sub">Cuéntanos tu provincia y te enviamos una muestra real del feed, sin compromiso. Te respondo personalmente.</p>
+    <form id="form-contacto">
+      <div class="row">
+        <label>Nombre*<input name="nombre" type="text" required maxlength="100"></label>
+        <label>Email*<input name="email" type="email" required maxlength="150"></label>
+      </div>
+      <div class="row">
+        <label>Empresa<input name="empresa" type="text" maxlength="120"></label>
+        <label>Provincia(s) de interés<input name="provincias" type="text" maxlength="120" placeholder="Ej.: Madrid, Valencia"></label>
+      </div>
+      <label>Plan de interés
+        <select name="plan">
+          <option value="">Sin decidir / solo quiero la muestra</option>
+          <option>Una provincia (49 €/mes)</option>
+          <option>Varias provincias</option>
+          <option>Toda España (98 €/mes)</option>
+        </select>
+      </label>
+      <label>Mensaje*<textarea name="mensaje" rows="4" required maxlength="3000" placeholder="¿Qué necesitas? ¿Qué provincia te interesa?"></textarea></label>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+      <button type="submit" class="cta">Enviar</button>
+      <p id="form-status" class="form-status" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer
+  <div class="wrap cols">
+    <div>
+      <b style="color:var(--ink)">Altas Mercantiles</b><br>
+      Feeds semanales de empresas recién constituidas (BORME).<br>
+      Contacto: <a href="#contacto">formulario de contacto</a><br>
+      Informe: <a href="/informe-empresas-espana.html">dónde se crean empresas en España</a>
+    </div>
+    <div style="max-width:460px">
+      Datos procedentes del Boletín Oficial del Registro Mercantil (BORME), fuente de
+      acceso público. Para ejercer derechos de supresión u oposición sobre datos
+      personales, escríbenos y lo resolvemos en 72&nbsp;horas.<br><br>
+      Esta web no usa cookies ni rastreadores y no recopila datos de quien la visita.
+      Solo tratamos los datos de contacto que nos facilites al escribirnos, para
+      responderte.<br><br>
+      © 2026 Altas Mercantiles
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Preseleccionar el plan al pulsar un botón de precios
+  document.querySelectorAll('[data-plan]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var sel = document.querySelector('#form-contacto select[name=plan]');
+      if (sel) sel.value = el.getAttribute('data-plan');
+    });
+  });
+  var form = document.getElementById('form-contacto');
+  if (!form) return;
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type=submit]');
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+    status.textContent = 'Enviando…';
+    status.className = 'form-status';
+    btn.disabled = true;
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) {
+      return r.json().then(function (j) { return { ok: r.ok, j: j }; });
+    }).then(function (res) {
+      if (res.ok && res.j.ok) {
+        form.reset();
+        status.textContent = '¡Gracias! Te he enviado un correo de confirmación y te respondo en breve.';
+        status.className = 'form-status ok';
+      } else {
+        status.textContent = (res.j && res.j.error) ? res.j.error : 'No se pudo enviar. Inténtalo de nuevo.';
+        status.className = 'form-status err';
+      }
+    }).catch(function () {
+      status.textContent = 'Error de conexión. Inténtalo de nuevo en un momento.';
+      status.className = 'form-status err';
+    }).finally(function () { btn.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
